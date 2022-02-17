@@ -15,8 +15,7 @@ WORKDIR /var/wwwroot/default
 
 RUN setup-nodesource-deb && apt-get install -y nodejs && \
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
-    git init && git remote add origin https://github.com/nasqueron/auth-grove.git && \
-    git fetch && git checkout -t origin/master && \
+    git clone https://devcentral.nasqueron.org/source/auth-grove.git . && \
     composer install --no-dev -o && \
     npm install -g gulp && \
     npm install && \
